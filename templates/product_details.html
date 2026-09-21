@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ product.name }} - Fashion Store</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <h2>Fashion Store</h2>
+
+        <div>
+            <a href="/">Home</a>
+
+            <a href="/cart">
+                🛒 Cart ({{ cart_count }})
+            </a>
+        </div>
+
+    </nav>
+
+
+    <!-- Product Details -->
+
+    <div class="product-details">
+
+        <div class="product-image">
+
+            <img src="{{ product.image }}"
+                 alt="{{ product.name }}">
+
+        </div>
+
+
+        <div class="product-info">
+
+            <h1>{{ product.name }}</h1>
+
+            <h2>₹{{ product.price }}</h2>
+
+            <p>
+                <strong>Category:</strong>
+                {{ product.category }}
+            </p>
+
+            <p>
+                Premium quality clothing with
+                comfortable and stylish design.
+            </p>
+
+            <a href="/add_to_cart/{{ product.id }}"
+               class="btn">
+                🛒 Add to Cart
+            </a>
+
+           <a href="/buy_now/{{ product.id }}"
+   class="buy-btn">
+    Buy Now
+</a>
+
+            <br>
+
+            <a href="/" class="back-btn">
+                ← Continue Shopping
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Fashion Store | All Rights Reserved
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

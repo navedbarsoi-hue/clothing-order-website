@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Fashion Store</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <h2>Fashion Store - Admin</h2>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <div class="admin-container">
+
+        <h1>Admin Dashboard</h1>
+
+
+        <div class="admin-stats">
+
+            <div class="stat-card">
+
+                <h3>Total Orders</h3>
+
+                <strong>
+                    {{ total_orders }}
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>Total Sales</h3>
+
+                <strong>
+                    ₹{{ total_sales }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="orders-section">
+
+            <h2>Customer Orders</h2>
+
+            {% if orders %}
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Product</th>
+                            <th>Total</th>
+                            <th>Payment Method</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for order in orders %}
+
+                        <tr>
+
+                            <td>
+                                #{{ order.id }}
+                            </td>
+
+                            <td>
+                                {{ order.name }}
+                            </td>
+
+                            <td>
+                                {{ order.phone }}
+                            </td>
+
+                            <td>
+                                {{ order.address }}
+                            </td>
+
+                            <td>
+                                {{ order.product }}
+                            </td>
+
+                            <td>
+                                ₹{{ order.total }}
+                            </td>
+
+                            <td>
+                                {{ order.payment_method }}
+                            </td>
+
+                            <td>
+
+                                <span class="status
+                                    {% if order.status == 'Pending' %}
+                                        pending
+                                    {% elif order.status == 'Shipped' %}
+                                        shipped
+                                    {% else %}
+                                        delivered
+                                    {% endif %}
+                                ">
+
+                                    {{ order.status }}
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <a href="/update_status/{{ order.id }}/Pending"
+                                   class="action-btn pending-btn">
+                                    Pending
+                                </a>
+
+                                <a href="/update_status/{{ order.id }}/Shipped"
+                                   class="action-btn shipped-btn">
+                                    Shipped
+                                </a>
+
+                                <a href="/update_status/{{ order.id }}/Delivered"
+                                   class="action-btn delivered-btn">
+                                    Delivered
+                                </a>
+
+                                <a href="/delete_order/{{ order.id }}"
+                                   class="action-btn delete-btn"
+                                   onclick="return confirm('Delete this order?');">
+                                    Delete
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+            <p class="no-orders">
+                No orders found.
+            </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <p>
+            © 2026 Fashion Store | Admin Panel
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

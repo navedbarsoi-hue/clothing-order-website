@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login - Fashion Store</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <h2>Fashion Store</h2>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/cart">🛒 Cart</a>
+        </div>
+
+    </nav>
+
+
+    <div class="login-container">
+
+        <div class="login-box">
+
+            <div class="login-icon">
+                🔐
+            </div>
+
+            <h1>Admin Login</h1>
+
+            <p>Login to manage customer orders.</p>
+
+            <form method="POST">
+
+                <label>Username</label>
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter username"
+                    required
+                >
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter password"
+                    required
+                >
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+            <a href="/" class="back-btn">
+                ← Back to Store
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <p>
+            © 2026 Fashion Store | Admin Login
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

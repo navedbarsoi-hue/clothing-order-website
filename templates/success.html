@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Successful - Fashion Store</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <h2>Fashion Store</h2>
+
+        <div>
+            <a href="/">Home</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Success -->
+
+    <div class="success-container">
+
+        <div class="success-box">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h1>Order Placed Successfully!</h1>
+
+            <p>
+                Thank you, <strong>{{ name }}</strong>!
+            </p>
+
+            <p>
+    Your order has been received successfully.
+</p>
+<p>
+    <strong>Order ID: #{{ order_id }}</strong>
+</p>
+
+<p>
+    <strong>Order ID: #{{ order_id }}</strong>
+</p>
+
+            <div class="success-total">
+
+                <span>Order Amount</span>
+
+                <strong>₹{{ total }}</strong>
+
+            </div>
+
+            <p class="delivery-message">
+                🚚 Your order will be processed soon.
+            </p>
+
+            <a href="/" class="home-btn">
+                Continue Shopping
+            </a>
+            <a href="/track_order" class="track-btn">
+    📦 Track My Order
+</a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Fashion Store | All Rights Reserved
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout - Fashion Store</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <h2>Fashion Store</h2>
+
+        <div>
+            <a href="/">Home</a>
+
+            <a href="/cart">
+                🛒 Cart
+            </a>
+        </div>
+
+    </nav>
+
+
+    <!-- Checkout -->
+
+    <div class="checkout-container">
+
+        <div class="checkout-box">
+
+            <h1>Checkout</h1>
+
+            <p>Enter your delivery details</p>
+
+
+            <form method="POST">
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+
+                <label>Mobile Number</label>
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Enter your mobile number"
+                    required
+                >
+
+
+                <label>Delivery Address</label>
+
+                <textarea
+                    name="address"
+                    placeholder="Enter your complete address"
+                    rows="5"
+                    required
+                ></textarea>
+                <div class="payment-section">
+
+    <h3>Payment Method</h3>
+
+    <label class="payment-option">
+        <input
+            type="radio"
+            name="payment_method"
+            value="Cash on Delivery"
+            checked
+        >
+        💵 Cash on Delivery
+    </label>
+
+    <label class="payment-option">
+        <input
+            type="radio"
+            name="payment_method"
+            value="UPI"
+        >
+        📱 UPI / Online Payment
+    </label>
+
+    <div class="upi-payment" id="upiPayment">
+
+    <h4>Scan & Pay</h4>
+
+    <img
+        src="{{ url_for('static', filename='upi_qr.png') }}"
+        alt="UPI QR Code"
+        class="upi-qr"
+    >
+
+    <p>Scan this QR code using your UPI app.</p>
+
+</div>
+
+
+                <div class="order-total">
+
+                    <span>Total Amount</span>
+
+                    <strong>₹{{ total }}</strong>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="place-order-btn"
+                >
+                    🛍️ Place Order
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Fashion Store | All Rights Reserved
+        </p>
+
+    </footer>
+    <script>
+
+    const paymentOptions = document.querySelectorAll(
+        'input[name="payment_method"]'
+    );
+
+    const upiPayment = document.getElementById("upiPayment");
+
+    function updatePaymentDisplay() {
+
+        const selected = document.querySelector(
+            'input[name="payment_method"]:checked'
+        );
+
+        if (selected && selected.value === "UPI") {
+
+            upiPayment.style.display = "block";
+
+        } else {
+
+            upiPayment.style.display = "none";
+
+        }
+    }
+
+    paymentOptions.forEach(function(option) {
+
+        option.addEventListener(
+            "change",
+            updatePaymentDisplay
+        );
+
+    });
+
+    updatePaymentDisplay();
+
+</script>
+
+</body>
+
+</html>

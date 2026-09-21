@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🛍️ Fashion Store
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/cart">
+    🛒 Cart ({{ cart_count }})
+</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- CART -->
+
+    <section class="cart-section">
+
+        <h1>🛒 Your Shopping Cart</h1>
+
+
+        {% if cart %}
+
+            {% for product_id, item in cart.items() %}
+
+            <div class="cart-item">
+
+                <img class="cart-product-image"
+     src="{{ item.product.image }}"
+     alt="{{ item.product.name }}">
+
+
+                <div class="cart-product-info">
+
+                    <h3>
+                        {{ item['product']['name'] }}
+                    </h3>
+
+                    <p>
+                        Price: ₹{{ item['product']['price'] }}
+                    </p>
+
+
+                    <!-- QUANTITY -->
+
+                    <div class="quantity">
+
+                        <a href="/decrease/{{ product_id }}">
+                            −
+                        </a>
+
+                        <span>
+                            {{ item['quantity'] }}
+                        </span>
+
+                        <a href="/increase/{{ product_id }}">
+                            +
+                        </a>
+
+                    </div>
+
+
+                    <!-- REMOVE -->
+
+                    <a class="remove-btn"
+                       href="/remove/{{ product_id }}">
+
+                        🗑️ Remove
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+
+            <!-- TOTAL -->
+
+            <div class="cart-total">
+
+                <h2>
+                    Total: ₹{{ total }}
+                </h2>
+
+                <br>
+
+                <a href="/checkout"
+                   class="checkout-btn">
+
+                    Proceed to Checkout
+
+                </a>
+
+            </div>
+
+
+        {% else %}
+
+            <h2>
+                Your cart is empty 😔
+            </h2>
+
+            <br>
+
+            <a href="/"
+               class="shop-btn">
+
+                Continue Shopping
+
+            </a>
+
+        {% endif %}
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Fashion Store
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

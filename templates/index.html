@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QA Fashion Store</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <h2>QA Fashion Store</h2>
+
+        <div>
+    <a href="/">Home</a>
+
+    <a href="/track_order">
+        📦 Track Order
+    </a>
+
+    <a href="/cart">
+        🛒 Cart ({{ cart_count }})
+    </a>
+</div>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <h1>Welcome to QA Fashion</h1>
+
+        <p>Trendy Clothes at Affordable Prices</p>
+
+    </section>
+
+
+    <!-- Search -->
+    <div class="filter-box">
+
+        <form action="/" method="GET">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search clothes..."
+            >
+
+            <select name="category">
+
+                <option value="">All Categories</option>
+
+                <option value="Men">Men</option>
+
+                <option value="Women">Women</option>
+
+                <option value="Kids">Kids</option>
+
+            </select>
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- Products -->
+    <div class="products">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <img
+                src="{{ product.image }}"
+                alt="{{ product.name }}"
+            >
+
+            <h3>
+    <a href="/product/{{ product.id }}">
+        {{ product.name }}
+    </a>
+</h3>
+
+            <p>
+                ₹{{ product.price }}
+            </p>
+
+            <p>
+                Category: {{ product.category }}
+            </p>
+
+            <a
+                href="/add_to_cart/{{ product.id }}"
+                class="btn"
+            >
+                Add to Cart
+            </a>
+
+            <a
+                href="/add_to_cart/{{ product.id }}"
+                class="buy-btn"
+            >
+                Buy Now
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026  QA Fashion Store | All Rights Reserved
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
