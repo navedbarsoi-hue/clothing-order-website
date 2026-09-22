@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, session
 import sqlite3
+import os
 
 app = Flask(__name__)
 app.secret_key = "fashion_store_secret_key"
@@ -387,7 +388,7 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
 
-        if username == "admin" and password == "Naved@786":
+        if username == "admin" and password == "Naved@2026#Store":
 
             session["admin"] = True
 
