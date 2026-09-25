@@ -1057,3 +1057,32 @@ footer {
     font-weight: bold;
     text-align: center;
 }
+.store-address-section {
+    width: 92%;
+    max-width: 900px;
+    margin: 50px auto 20px;
+    padding: 30px 20px;
+
+    background: white;
+    border: 1px solid #cfe3d7;
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow: 0 4px 15px rgba(0, 70, 35, 0.08);
+}
+
+.store-address-section h2 {
+    margin-top: 0;
+    color: #1565c0;
+}
+
+.store-address-section p {
+    color: #1565c0;
+    line-height: 1.7;
+}
+
+.store-address-section strong {
+    color: #1565c0;
+    font-size: 20px;
+}
