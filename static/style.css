@@ -960,5 +960,62 @@ footer {
     .track-box {
         padding: 22px;
     }
-
 }
+
+```css
+/* ========================================
+   STORE ADDRESS
+======================================== */
+
+.store-address {
+    margin: 28px auto 0;
+    padding: 16px 22px;
+
+    max-width: 650px;
+
+    background: #eef8f2;
+
+    border: 1px solid #cfe3d7;
+
+    border-radius: 10px;
+
+    color: #075b32;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    text-align: center;
+
+    box-shadow: 0 3px 10px rgba(0, 70, 35, 0.06);
+}
+
+.store-address strong {
+    font-size: 18px;
+}
+```
+
+```css
+.store-address {
+    display: block;
+    width: 90%;
+    max-width: 700px;
+    margin: 25px auto 0;
+    padding: 15px 20px;
+
+    background: #eef8f2;
+    border: 1px solid #cfe3d7;
+    border-radius: 10px;
+
+    color: #075b32;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.7;
+
+    box-shadow: 0 3px 10px rgba(0, 70, 35, 0.08);
+}
+
+.store-address strong {
+    font-size: 18px;
+}
+```
