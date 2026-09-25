@@ -1086,3 +1086,295 @@ footer {
     color: #1565c0;
     font-size: 20px;
 }
+/* =========================================
+   AC FASHION - CENTER BLUE INFORMATION
+========================================= */
+
+.hero {
+    text-align: center !important;
+}
+
+.hero p {
+    text-align: center !important;
+}
+
+/* Mumbai Delhi Kolkata line */
+
+.city-dress-line {
+    display: block !important;
+    width: 100% !important;
+    margin: 15px auto 0 !important;
+
+    text-align: center !important;
+
+    color: #1565c0 !important;
+    font-size: 17px !important;
+    font-weight: bold !important;
+}
+
+/* Store Address */
+
+.store-address-section {
+    display: block !important;
+
+    width: 92% !important;
+    max-width: 900px !important;
+
+    margin: 50px auto 30px !important;
+    padding: 30px 20px !important;
+
+    background: white !important;
+
+    border: 1px solid #1565c0 !important;
+    border-radius: 12px !important;
+
+    text-align: center !important;
+
+    box-shadow: 0 4px 15px rgba(0, 70, 35, 0.08) !important;
+}
+
+.store-address-section h2 {
+    margin: 0 0 15px !important;
+
+    text-align: center !important;
+
+    color: #1565c0 !important;
+}
+
+.store-address-section p {
+    margin: 8px 0 !important;
+
+    text-align: center !important;
+
+    color: #1565c0 !important;
+
+    font-size: 16px !important;
+}
+
+.store-address-section strong {
+    color: #1565c0 !important;
+
+    font-size: 20px !important;
+}
+.footer-address {
+    text-align: center !important;
+    color: #1565c0 !important;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-top: 10px;
+}
+
+.footer-address strong {
+    color: #1565c0 !important;
+    font-size: 18px;
+}
+.footer-address {
+    text-align: center !important;
+    color: white !important;
+    font-size: 15px;
+    font-weight: bold !important;
+    line-height: 1.7;
+    margin-top: 10px;
+}
+
+.footer-address strong {
+    color: white !important;
+    font-size: 18px;
+    font-weight: bold !important;
+}
+/* ================= CART PAGE ================= */
+
+.cart-page {
+    width: 92%;
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.cart-page > h1 {
+    color: #075b32;
+    margin-bottom: 30px;
+}
+
+/* Cart Items */
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.cart-item {
+    background: white;
+    border: 1px solid #dceee4;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.cart-item-info {
+    text-align: left;
+    flex: 1;
+}
+
+.cart-item-info h2 {
+    margin: 0 0 7px;
+    color: #075b32;
+    font-size: 20px;
+}
+
+.cart-category {
+    margin: 5px 0;
+    color: #777;
+}
+
+.cart-price {
+    margin: 5px 0;
+    color: #1565c0;
+    font-weight: bold;
+}
+
+.cart-quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.qty-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #075b32;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cart-quantity span {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.cart-total {
+    font-weight: bold;
+    color: #075b32;
+    min-width: 80px;
+}
+
+.remove-btn {
+    background: #d32f2f;
+    color: white;
+    padding: 9px 14px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Cart Summary */
+
+.cart-summary {
+    background: white;
+    max-width: 500px;
+    margin: 35px auto;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid #dceee4;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.cart-summary h2 {
+    color: #075b32;
+    margin-top: 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.grand-total {
+    font-size: 20px;
+    color: #075b32;
+    border-bottom: none;
+}
+
+.checkout-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 13px;
+    background: #075b32;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.checkout-btn:hover {
+    background: #064726;
+}
+
+/* Empty Cart */
+
+.empty-cart {
+    background: white;
+    max-width: 550px;
+    margin: 60px auto;
+    padding: 45px 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.empty-cart h2 {
+    color: #075b32;
+}
+
+.empty-cart p {
+    color: #777;
+}
+
+.continue-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #075b32;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cart-item-info {
+        text-align: center;
+    }
+
+    .cart-quantity {
+        justify-content: center;
+    }
+
+    .cart-total {
+        min-width: auto;
+    }
+
+    .remove-btn {
+        width: 100%;
+    }
+}

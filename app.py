@@ -229,9 +229,10 @@ def home():
             if product["category"] == category
         ]
 
+    cart = session.get("cart", {})
     cart_count = sum(
-        item["quantity"] for item in cart.values()
-    )
+    item["quantity"] for item in cart.values()
+)
 
     return render_template(
         "index.html",
@@ -296,83 +297,83 @@ def product_details(product_id):
 @app.route("/add_to_cart/<int:product_id>")
 def add_to_cart(product_id):
 
+    cart = session.get("cart", {})
+
     for product in products:
 
         if product["id"] == product_id:
 
-            if product_id in cart:
+            product_key = str(product_id)
 
-                cart[product_id]["quantity"] += 1
+            if product_key in cart:
+
+                cart[product_key]["quantity"] += 1
 
             else:
 
-                cart[product_id] = {
+                cart[product_key] = {
                     "product": product,
                     "quantity": 1
                 }
 
             break
 
+    session["cart"] = cart
+    session.modified = True
+
     return redirect(url_for("home"))
-@app.route("/buy_now/<int:product_id>")
-def buy_now(product_id):
-
-    for product in products:
-        if product["id"] == product_id:
-
-            cart.clear()
-
-            cart[product_id] = {
-                "product": product,
-                "quantity": 1
-            }
-
-            return redirect(url_for("checkout"))
-
-    return "Product not found"
-
-
-# ==================================================
-# CART
-# ==================================================
-
-@app.route("/cart")
-def view_cart():
-
-    total = 0
-
-    cart_count = 0
-
-    for item in cart.values():
-
-        total += (
-            item["product"]["price"]
-            * item["quantity"]
-        )
-
-        cart_count += item["quantity"]
-
-    return render_template(
-        "cart.html",
-        cart=cart,
-        total=total,
-        cart_count=cart_count
-    )
-
-
-# ==================================================
+# ========================================
 # INCREASE QUANTITY
 # ==================================================
 
 @app.route("/increase/<int:product_id>")
 def increase_quantity(product_id):
 
-    if product_id in cart:
+    cart = session.get("cart", {})
 
+    product_id = str(product_id)
+
+    if product_id in cart:
         cart[product_id]["quantity"] += 1
 
-    return redirect(url_for("view_cart"))
+    session["cart"] = cart
+    session.modified = True
 
+    return redirect(url_for("view_cart"))
+# ==================================================
+# CART PAGE
+# ==================================================
+
+@app.route("/cart")
+def view_cart():
+
+    cart = session.get("cart", {})
+
+    cart_items = []
+    total = 0
+    cart_count = 0
+
+    for product_id, item in cart.items():
+
+        product = item["product"]
+        quantity = item["quantity"]
+
+        cart_item = product.copy()
+        cart_item["quantity"] = quantity
+
+        cart_items.append(cart_item)
+
+        total += product["price"] * quantity
+        cart_count += quantity
+
+    return render_template(
+        "cart.html",
+        cart=cart_items,
+        total=total,
+        cart_count=cart_count
+    )
+# DECREASE QUANTITY
+# ==================================================
 
 # ==================================================
 # DECREASE QUANTITY
@@ -381,27 +382,38 @@ def increase_quantity(product_id):
 @app.route("/decrease/<int:product_id>")
 def decrease_quantity(product_id):
 
+    cart = session.get("cart", {})
+
+    product_id = str(product_id)
+
     if product_id in cart:
 
-        cart[product_id]["quantity"] -= 1
+        if cart[product_id]["quantity"] > 1:
+            cart[product_id]["quantity"] -= 1
 
-        if cart[product_id]["quantity"] <= 0:
-
+        else:
             del cart[product_id]
 
+    session["cart"] = cart
+    session.modified = True
+
     return redirect(url_for("view_cart"))
-
-
 # ==================================================
 # REMOVE PRODUCT
-# ==================================================
+# ================================================
 
 @app.route("/remove/<int:product_id>")
-def remove_product(product_id):
+def remove_from_cart(product_id):
+
+    cart = session.get("cart", {})
+
+    product_id = str(product_id)
 
     if product_id in cart:
-
         del cart[product_id]
+
+    session["cart"] = cart
+    session.modified = True
 
     return redirect(url_for("view_cart"))
 
@@ -458,6 +470,7 @@ def checkout():
         connection.close()
 
         cart.clear()
+        session.pop("cart", None)
 
         return render_template(
             "success.html",
