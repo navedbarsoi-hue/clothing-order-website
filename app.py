@@ -322,6 +322,27 @@ def add_to_cart(product_id):
     session.modified = True
 
     return redirect(url_for("home"))
+
+@app.route("/buy_now/<int:product_id>")
+def buy_now(product_id):
+
+    cart = {}
+
+    for product in products:
+
+        if product["id"] == product_id:
+
+            cart[str(product_id)] = {
+                "product": product,
+                "quantity": 1
+            }
+
+            break
+
+    session["cart"] = cart
+    session.modified = True
+
+    return redirect(url_for("checkout"))
 # ========================================
 # INCREASE QUANTITY
 # ==================================================
