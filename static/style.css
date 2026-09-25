@@ -1019,3 +1019,41 @@ footer {
     font-size: 18px;
 }
 ```
+/* STORE ADDRESS - BOTTOM */
+
+.store-address-section {
+    width: 92%;
+    max-width: 900px;
+    margin: 50px auto 20px;
+    padding: 30px 20px;
+
+    background: white;
+    border: 1px solid #cfe3d7;
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow: 0 4px 15px rgba(0, 70, 35, 0.08);
+}
+
+.store-address-section h2 {
+    margin-top: 0;
+    color: #075b32;
+}
+
+.store-address-section p {
+    color: #555;
+    line-height: 1.7;
+}
+
+.store-address-section strong {
+    color: #0b6b3a;
+    font-size: 20px;
+}
+.city-dress-line {
+    margin: 12px auto 0;
+    color: #1565c0;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
