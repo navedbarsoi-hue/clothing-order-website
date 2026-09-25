@@ -11,6 +11,8 @@ app.secret_key = "fashion_store_secret_key"
 # ==================================================
 
 products = [
+    # ================= MEN =================
+
     {
         "id": 1,
         "name": "Men's T-Shirt",
@@ -27,17 +29,135 @@ products = [
     },
     {
         "id": 3,
+        "name": "Men's Jeans",
+        "price": 999,
+        "category": "Men",
+        "image": "https://images.unsplash.com/photo-1542272604-787c3835535d"
+    },
+    {
+        "id": 4,
+        "name": "Men's Polo T-Shirt",
+        "price": 699,
+        "category": "Men",
+        "image": "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d"
+    },
+    {
+        "id": 5,
+        "name": "Men's Kurta",
+        "price": 899,
+        "category": "Men",
+        "image": "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc"
+    },
+    {
+        "id": 6,
+        "name": "Men's Hoodie",
+        "price": 1099,
+        "category": "Men",
+        "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7"
+    },
+
+    # ================= WOMEN =================
+
+    {
+        "id": 7,
+        "name": "Women's Suit",
+        "price": 1299,
+        "category": "Women",
+        "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1"
+    },
+    {
+        "id": 8,
+        "name": "Women's Dupatta",
+        "price": 499,
+        "category": "Women",
+        "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c"
+    },
+    {
+        "id": 9,
+        "name": "Women's Lehenga",
+        "price": 2499,
+        "category": "Women",
+        "image": "https://images.unsplash.com/photo-1583391733956-6c78276477e2"
+    },
+    {
+        "id": 10,
         "name": "Women's Dress",
         "price": 999,
         "category": "Women",
         "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8"
     },
     {
-        "id": 4,
+        "id": 11,
         "name": "Women's Top",
         "price": 599,
         "category": "Women",
         "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3"
+    },
+    {
+        "id": 12,
+        "name": "Women's Kurti",
+        "price": 899,
+        "category": "Women",
+        "image": "https://images.unsplash.com/photo-1610030469668-8e9f641aaf58"
+    },
+    {
+        "id": 13,
+        "name": "Women's Saree",
+        "price": 1499,
+        "category": "Women",
+        "image": "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb"
+    },
+    {
+        "id": 14,
+        "name": "Women's Jeans",
+        "price": 899,
+        "category": "Women",
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246"
+    },
+    {
+        "id": 15,
+        "name": "Women's Palazzo",
+        "price": 699,
+        "category": "Women",
+        "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
+    },
+
+    # ================= KIDS =================
+
+    {
+        "id": 16,
+        "name": "Kids T-Shirt",
+        "price": 299,
+        "category": "Kids",
+        "image": "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea"
+    },
+    {
+        "id": 17,
+        "name": "Kids Shirt",
+        "price": 399,
+        "category": "Kids",
+        "image": "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8"
+    },
+    {
+        "id": 18,
+        "name": "Kids Jeans",
+        "price": 499,
+        "category": "Kids",
+        "image": "https://images.unsplash.com/photo-1519457431-44ccd64a579b"
+    },
+    {
+        "id": 19,
+        "name": "Kids Dress",
+        "price": 599,
+        "category": "Kids",
+        "image": "https://images.unsplash.com/photo-1503919545889-aef636e10ad4"
+    },
+    {
+        "id": 20,
+        "name": "Kids Kurta",
+        "price": 699,
+        "category": "Kids",
+        "image": "https://images.unsplash.com/photo-1621452773781-0f992fd1f5e4"
     }
 ]
 
@@ -388,7 +508,7 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
 
-        if username == "admin" and password == "Naved@2026#Store":
+        if username == "admin" and password == "Naved@786":
 
             session["admin"] = True
 
